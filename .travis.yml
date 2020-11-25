@@ -91,6 +91,103 @@ jobs:
         - gtk-doc-tools
     env:
       - CONFIGURE_FLAGS="--with-unixodbc=/usr --disable-glib"
+  #Power jobs
+  - compiler: clang
+    os: linux
+    arch: ppc64le
+    addons:
+      apt:
+        packages:
+        - libiodbc2-dev
+        - gawk
+        - gtk-doc-tools
+    env:
+      - CONFIGURE_FLAGS="--with-iodbc=/usr --disable-glib"
+  - compiler: clang
+    os: linux
+    arch: ppc64le
+    addons:
+      apt:
+        packages:
+        - libiodbc2-dev
+        - libglib2.0-dev
+        - gawk
+        - gtk-doc-tools
+    env:
+      - CONFIGURE_FLAGS="--with-iodbc=/usr --enable-glib"
+  - compiler: clang
+    os: linux
+    arch: ppc64le
+    addons:
+      apt:
+        packages:
+        - unixodbc-dev
+        - gawk
+        - gtk-doc-tools
+    env:
+      - CONFIGURE_FLAGS="--with-unixodbc=/usr --disable-glib"
+  - compiler: clang
+    os: linux
+    arch: ppc64le
+    addons:
+      apt:
+        packages:
+        - unixodbc-dev
+        - libglib2.0-dev
+        - gawk
+        - gtk-doc-tools
+    env:
+      - CONFIGURE_FLAGS="--with-unixodbc=/usr --enable-glib"
+  - compiler: gcc
+    os: linux
+    arch: ppc64le
+    addons:
+      apt:
+        packages:
+        - libiodbc2-dev
+        - gawk
+        - gtk-doc-tools
+    env:
+      - CONFIGURE_FLAGS="--with-iodbc=/usr --disable-glib"
+  - compiler: gcc
+    os: linux
+    arch: ppc64le
+    addons:
+      apt:
+        packages:
+        - unixodbc-dev
+        - gawk
+        - gtk-doc-tools
+    env:
+      - CONFIGURE_FLAGS="--with-unixodbc=/usr --disable-glib"
+  - compiler: gcc-10
+    os: linux
+    arch: ppc64le
+    addons:
+      apt:
+        sources:
+        - sourceline: 'ppa:ubuntu-toolchain-r/test'
+        packages:
+        - gcc-10
+        - libiodbc2-dev
+        - gawk
+        - gtk-doc-tools
+    env:
+      - CONFIGURE_FLAGS="--with-iodbc=/usr --disable-glib"
+  - compiler: gcc-10
+    os: linux
+    arch: ppc64le
+    addons:
+      apt:
+        sources:
+        - sourceline: 'ppa:ubuntu-toolchain-r/test'
+        packages:
+        - gcc-10
+        - unixodbc-dev
+        - gawk
+        - gtk-doc-tools
+    env:
+      - CONFIGURE_FLAGS="--with-unixodbc=/usr --disable-glib"
   - compiler: clang
     os: osx
     osx_image: xcode11.4
